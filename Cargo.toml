@@ -2,6 +2,13 @@
 name = "postgres_secrets"
 version = "1.0.0"
 edition = "2021"
+license = "Unlicense"
+description = "Secure access to Postgres credentials."
+keywords = ["postgres", "postgresql"]
+categories = ["database"]
+repository = "https://github.com/MaxBondABE/postgres_secrets"
+readme = "README.md"
+homepage = "https://github.com/MaxBondABE/postgres_secrets"
 
 [dependencies]
 home = "0.5.9"
