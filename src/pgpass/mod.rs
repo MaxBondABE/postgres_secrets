@@ -134,7 +134,7 @@ pub const ESCAPABLE: [char; 3] = [ESCAPE_CHAR, WILDCARD_CHAR, DELIMITER_CHAR];
 /// - `libpq` performs a permissions check on the pgpass file, and will
 ///     not open a file which is too permissive. This library does not
 ///     perform this check.
-/// 
+///
 #[derive(Default, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct PgPass {
     patterns: Vec<CredentialPattern<HasPasswordTrue>>,

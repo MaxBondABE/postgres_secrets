@@ -74,7 +74,9 @@ fn password_field(s: &str) -> IResult<&str, String, ParsingError> {
     }
 }
 
-pub fn credential_pattern(s: &str) -> IResult<&str, CredentialPattern<HasPasswordTrue>, ParsingError> {
+pub fn credential_pattern(
+    s: &str,
+) -> IResult<&str, CredentialPattern<HasPasswordTrue>, ParsingError> {
     let (remaining, (hostname, port, database, username, password)) = (
         hostname_field,
         port_field,
@@ -92,7 +94,7 @@ pub fn credential_pattern(s: &str) -> IResult<&str, CredentialPattern<HasPasswor
             database,
             username,
             password,
-            _tag: PhantomData
+            _tag: PhantomData,
         },
     ))
 }
@@ -114,7 +116,7 @@ mod test {
             database: Some("three".to_string()),
             username: Some("four".to_string()),
             password: "five".to_string(),
-            _tag: PhantomData
+            _tag: PhantomData,
         };
         assert_eq!(credential_pattern(s).unwrap(), ("", expected.clone()));
     }
@@ -128,7 +130,7 @@ mod test {
             database: Some("three".to_string()),
             username: Some("four".to_string()),
             password: "five".to_string(),
-            _tag: PhantomData
+            _tag: PhantomData,
         };
         assert_eq!(
             credential_pattern(format!("{}\nabc", s).as_str()).unwrap(),
@@ -149,7 +151,7 @@ mod test {
             database: Some("three".to_string()),
             username: Some("four".to_string()),
             password: "five".to_string(),
-            _tag: PhantomData
+            _tag: PhantomData,
         };
         assert_eq!(credential_pattern(s).unwrap(), ("", expected.clone()));
 
@@ -160,7 +162,7 @@ mod test {
             database: Some("three".to_string()),
             username: Some("four".to_string()),
             password: "five".to_string(),
-            _tag: PhantomData
+            _tag: PhantomData,
         };
         assert_eq!(credential_pattern(s).unwrap(), ("", expected.clone()));
 
@@ -171,7 +173,7 @@ mod test {
             database: None,
             username: Some("four".to_string()),
             password: "five".to_string(),
-            _tag: PhantomData
+            _tag: PhantomData,
         };
         assert_eq!(credential_pattern(s).unwrap(), ("", expected.clone()));
 
@@ -182,7 +184,7 @@ mod test {
             database: Some("three".to_string()),
             username: None,
             password: "five".to_string(),
-            _tag: PhantomData
+            _tag: PhantomData,
         };
         assert_eq!(credential_pattern(s).unwrap(), ("", expected.clone()));
 
