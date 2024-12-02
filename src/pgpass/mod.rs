@@ -222,7 +222,7 @@ impl PgPass {
 
         for cred in first.into_iter().chain(iterator) {
             cred.encode_into(&mut s);
-            f.write(s.as_bytes())?;
+            f.write_all(s.as_bytes())?;
             s.clear();
         }
         Ok(())
