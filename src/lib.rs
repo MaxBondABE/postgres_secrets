@@ -1,4 +1,4 @@
-#![deny(unused_must_use)]
+#![deny(unused_must_use, clippy::dbg_macro)]
 //! A secure way to access Postgres credentials from a file.
 //!
 //! `postgres_secrets` allows you to encode less-sensitive information about
